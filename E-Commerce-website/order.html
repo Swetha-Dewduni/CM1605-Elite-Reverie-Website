@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Elite Reverie</title>
+    <link rel="stylesheet" href="order.css">
+    <link rel="stylesheet" href="index.css">
+    <script src="cart.js"></script>
+
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>ELITE REVERIE</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li class="dropdown">
+                        <a href="products.html" class="dropbtn">Shop<span class="arrow">▼</span></a>
+                    <div class="dropdown-content">
+                        <a href="Tops.html">Tops</a>
+                        <a href="minidresses.html">Mini Dresses</a>
+                        <a href="mididresses.html">Midi Dresses</a>
+                        <a href="maxidress.html">Maxi Dresses</a>
+                        <a href="cardigan.html">Cardigans</a>
+                        <a href="pant.html">Pants</a>
+                    </div></li>
+                    <li><a href="order.html">Checkout</a></li>
+					<li><a href="login.html">Login</a></li>
+					<li><a href="cart.html">🛒Cart (<span id="cart-count">0</span>)</a></li>
+					
+                </ul>
+            </nav>
+        </div>
+        
+
+        
+    </header>
+
+    <section class="order-container">
+        <div class="order-summary">
+            <h2>Order Summary</h2>
+            <div id="order-items">
+                <!-- Cart items will be loaded here -->
+            </div>
+            <div class="order-totals">
+                <div class="total-row">
+                    <span>Subtotal</span>
+                    <span id="subtotal">Rs 0.00</span>
+                </div>
+                <div class="total-row">
+                    <span>Shipping</span>
+                    <span id="shipping">Rs 0.00</span>
+                </div>
+                <div class="total-row grand-total">
+                    <span>Total</span>
+                    <span id="total">Rs 0.00</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="checkout-form">
+            <h2>Checkout Information</h2>
+            <form id="payment-form">
+                <div class="form-section">
+                    <h3>Contact Information</h3>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h3>Shipping Address</h3>
+                    <div class="form-group">
+                        <label for="fullname">Full Name</label>
+                        <input type="text" id="fullname" name="fullname" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Address</label>
+                        <input type="text" id="address" name="address" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="city">City</label>
+                        <input type="text" id="city" name="city" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="postal">Postal Code</label>
+                        <input type="text" id="postal" name="postal" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h3>Payment Method</h3>
+                    <div class="payment-methods">
+                        <label class="payment-option">
+                            <input type="radio" name="payment" value="card" checked>
+                            <span>Credit/Debit Card</span>
+                        </label>
+                        <label class="payment-option">
+                            <input type="radio" name="payment" value="cash">
+                            <span>Cash on Delivery</span>
+                        </label>
+                    </div>
+
+                    <div id="card-details">
+                        <div class="form-group">
+                            <label for="cardnumber">Card Number</label>
+                            <input type="text" id="cardnumber" name="cardnumber" placeholder="1234 5678 9012 3456">
+                        </div>
+                        <div class="form-group">
+                            <label for="expiry">Expiry Date</label>
+                            <input type="text" id="expiry" name="expiry" placeholder="MM/YY">
+                        </div>
+                        <div class="form-group">
+                            <label for="cvv">CVV</label>
+                            <input type="text" id="cvv" name="cvv" placeholder="123">
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" class="place-order-btn">Place Order</button>
+            </form>
+        </div>
+    </section>
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+    // Load cart items and display them
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const orderItemsContainer = document.getElementById("order-items");
+    const subtotalElement = document.getElementById("subtotal");
+    const shippingElement = document.getElementById("shipping");
+    const totalElement = document.getElementById("total");
+    
+    // Display cart items
+    function displayCartItems() {
+        orderItemsContainer.innerHTML = "";
+        
+        if (cart.length === 0) {
+            orderItemsContainer.innerHTML = "<p>Your cart is empty. <a href='products.html'>Continue shopping</a></p>";
+            return;
+        }
+        
+        let subtotal = 0;
+        
+        cart.forEach(item => {
+            const itemElement = document.createElement("div");
+            itemElement.className = "order-item";
+            itemElement.innerHTML = `
+                <div class="item-image">
+                    <img src="${item.image}" alt="${item.name}">
+                </div>
+                <div class="item-details">
+                    <h4>${item.name}</h4>
+                    ${item.color ? `<div class="item-color" style="background-color:${item.color}"></div>` : ''}
+                    <div class="item-price">Rs ${item.price.toLocaleString()}</div>
+                    <div class="item-quantity">Quantity: ${item.quantity}</div>
+                </div>
+                <div class="item-total">Rs ${(item.price * item.quantity).toLocaleString()}</div>
+            `;
+            orderItemsContainer.appendChild(itemElement);
+            subtotal += item.price * item.quantity;
+        });
+        
+        // Calculate totals
+        const shipping = subtotal > 5000 ? 0 : 250; // Free shipping for orders over Rs 5000
+        const total = subtotal + shipping;
+        
+        // Update totals display
+        subtotalElement.textContent = `Rs ${subtotal.toLocaleString()}`;
+        shippingElement.textContent = `Rs ${shipping.toLocaleString()}`;
+        totalElement.textContent = `Rs ${total.toLocaleString()}`;
+    }
+    
+    // Handle payment method toggle
+    const paymentMethods = document.querySelectorAll('input[name="payment"]');
+    const cardDetails = document.getElementById("card-details");
+    
+    paymentMethods.forEach(method => {
+        method.addEventListener("change", function() {
+            if (this.value === "card") {
+                cardDetails.style.display = "block";
+            } else {
+                cardDetails.style.display = "none";
+            }
+        });
+    });
+    
+    // Handle form submission
+    document.getElementById("payment-form").addEventListener("submit", function(e) {
+        e.preventDefault();
+        
+        if (cart.length === 0) {
+            alert("Your cart is empty. Please add items before checking out.");
+            return;
+        }
+        
+        
+        // For demo purposes, we'll just show a confirmation
+        const orderData = {
+            items: cart,
+            customer: {
+                name: document.getElementById("fullname").value,
+                email: document.getElementById("email").value,
+                address: document.getElementById("address").value,
+                city: document.getElementById("city").value,
+                postal: document.getElementById("postal").value,
+                phone: document.getElementById("phone").value
+            },
+            payment: document.querySelector('input[name="payment"]:checked').value,
+            total: parseFloat(totalElement.textContent.replace('Rs ', '').replace(/,/g, '')),
+            date: new Date().toISOString()
+        };
+        
+        // Save order (in a real app, you'd send this to your server)
+        localStorage.setItem("currentOrder", JSON.stringify(orderData));
+        
+        // Clear cart
+        localStorage.removeItem("cart");
+        updateCartCount();
+        
+        // Redirect to confirmation page
+        window.location.href = "confirmation.html";
+    });
+    
+    // Initialize the page
+    displayCartItems();
+    updateCartCount();
+});
+
+</script>
+
+<script>
+    function validateCheckoutForm() {
+        const email = document.getElementById("email").value.trim();
+        const fullname = document.getElementById("fullname").value.trim();
+        const address = document.getElementById("address").value.trim();
+        const city = document.getElementById("city").value.trim();
+        const postal = document.getElementById("postal").value.trim();
+        const phone = document.getElementById("phone").value.trim();
+        const paymentMethod = document.querySelector('input[name="payment"]:checked').value;
+
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        const phoneRegex = /^\d{10}$/;
+
+        const cardNumber = document.getElementById("cardnumber").value.trim();
+        const expiry = document.getElementById("expiry").value.trim();
+        const cvv = document.getElementById("cvv").value.trim();
+
+        if (!email || !emailRegex.test(email)) {
+            alert("Please enter a valid email address.");
+            return false;
+        }
+        if (!fullname || !address || !city || !postal || !phone) {
+            alert("Please fill in all required shipping fields.");
+            return false;
+        }
+         if (!phoneRegex.test(phone)) {
+            alert("Please enter a valid 10-digit phone number.");
+            return false;
+        }
+        if (paymentMethod === "card") {
+            if (!cardNumber.match(/^\d{16}$/)) {
+                alert("Please enter a valid 16-digit card number.");
+                return false;
+            }
+            if (!expiry.match(/^(0[1-9]|1[0-2])\/\d{2}$/)) {
+                alert("Please enter expiry date in MM/YY format.");
+                return false;
+            }
+            if (!cvv.match(/^\d{3}$/)) {
+                alert("Please enter a valid 3-digit CVV.");
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    // Modify the form submission handler to use this validation
+    document.getElementById("payment-form").addEventListener("submit", function(e) {
+        e.preventDefault();
+
+        if (!validateCheckoutForm()) {
+            return;
+        }
+
+        const cart = JSON.parse(localStorage.getItem("cart")) || [];
+        if (cart.length === 0) {
+            alert("Your cart is empty. Please add items before checking out.");
+            return;
+        }
+
+        const orderData = {
+            items: cart,
+            customer: {
+                name: document.getElementById("fullname").value,
+                email: document.getElementById("email").value,
+                address: document.getElementById("address").value,
+                city: document.getElementById("city").value,
+                postal: document.getElementById("postal").value,
+                phone: document.getElementById("phone").value
+            },
+            payment: document.querySelector('input[name="payment"]:checked').value,
+            total: parseFloat(document.getElementById("total").textContent.replace('Rs ', '').replace(/,/g, '')),
+            date: new Date().toISOString()
+        };
+
+        localStorage.setItem("currentOrder", JSON.stringify(orderData));
+        localStorage.removeItem("cart");
+        updateCartCount();
+        window.location.href = "confirmation.html";
+    });
+
+
+    </script>
+
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>About Brand</h3>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+    
+            <div class="footer-section">
+                <h3>Online Information</h3>
+                <ul>
+                    <li><a href="#">Shipping & Returns</a></li>
+                    <li><a href="#">Store Finder</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Promotions</a></li>
+                    <li><a href="#">Loyalty Programs</a></li>
+                    <li><a href="#">Referral Rendezvous</a></li>
+                    <li><a href="#">CSR Projects</a></li>
+                    <li><a href="#">Blog Posts</a></li>
+                </ul>
+            </div>
+    
+            <div class="footer-section">
+                <h3>Customer Service</h3>
+                <p><i class="fas fa-map-marker-alt"></i> 216/3, Pamunuwa Road, Maharagama.</p>
+                <p><i class="fas fa-envelope"></i> online@elitereverie.lk</p>
+                <p><i class="fas fa-phone"></i> +94 77 009 9003</p>
+                <p><i class="fas fa-phone"></i> +94 76 629 2920</p>
+            </div>
+    
+            <div class="footer-section social">
+                <h3>Follow Us On</h3>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+        <hr>
+
+        <div class="footer-last">
+            
+                <p>&copy; 2025 Elite Reverie. All Rights Reserved.</p>
+            
+        </div>
+    </footer>
+    
+</body>
+</html>

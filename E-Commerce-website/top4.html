@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Breezy Off-Shoulder Crop Top</title>
+    <link rel="stylesheet" href="top.css">
+    <link rel="stylesheet" href="index.css">
+    <link rel="javascript" href="cart.js">
+    <link rel="javascript" href="script.js">
+    
+
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>ELITE REVERIE</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li class="dropdown">
+                        <a href="products.html" class="dropbtn">Shop<span class="arrow">▼</span></a>
+                    <div class="dropdown-content">
+                        <a href="Tops.html">Tops</a>
+                        <a href="minidresses.html">Mini Dresses</a>
+                        <a href="mididresses.html">Midi Dresses</a>
+                        <a href="maxidress.html">Maxi Dresses</a>
+                        <a href="cardigan.html">Cardigans</a>
+                        <a href="pant.html">Pants</a>
+                    </div></li>
+                    <li><a href="order.html">Checkout</a></li>
+					<li><a href="login.html">Login</a></li>
+					<li><a href="cart.html">🛒Cart (<span id="cart-count">0</span>)</a></li>
+					
+                </ul>
+            </nav>
+        </div>
+        <div  class="nav-right">
+            <input type="text" class="search-bar" placeholder="Search for products">
+            <button class="search-btn">Search</button>
+        </div>
+
+        
+    </header>
+
+    <div class="product-container" data-product-id="T0004" >
+        <img id="mainImage" src="top7.jpeg" alt="Product Image" class="product-img">
+        <div class="product-details">
+            <h1>Breezy Off-Shoulder Crop Top</h1>
+            <p><strong>Brand:</strong> Elite Reverie</p>
+            <p><strong>Code:</strong> T0004</p>
+            <p class="stock-status">✔ In stock</p>
+            <h2>LKR 1990.00</h2>
+            
+           
+            
+            <!-- Size Chart Link -->
+            <a href="#" class="size-chart-link">Size Chart</a>
+
+<!-- Modal (Hidden by Default) -->
+<div class="popup-overlay" id="sizeChartPopup">
+    <div class="popup-content">
+        <h3>Size Guide</h3>
+        
+        <table class="size-chart-table">
+            <tr>
+                <th>Size</th>
+                <th>S</th>
+                <th>M</th>
+                <th>L</th>
+                <th>XL</th>
+            </tr>
+            <tr>
+                <td>UK</td>
+                <td>8</td>
+                <td>10</td>
+                <td>12</td>
+                <td>14</td>
+            </tr>
+            <tr>
+                <td>USA</td>
+                <td>4</td>
+                <td>6</td>
+                <td>8</td>
+                <td>10</td>
+            </tr>
+            <tr>
+                <td>Bust(Inch)</td>
+                <td>34</td>
+                <td>36</td>
+                <td>38</td>
+                <td>41</td>
+            </tr>
+            <tr>
+                <td>Waist(Inch)</td>
+                <td>35</td>
+                <td>37</td>
+                <td>39</td>
+                <td>42</td>
+            </tr>
+            <tr>
+                <td>Length(Inch)</td>
+                <td>21</td>
+                <td>21.5</td>
+                <td>22</td>
+                <td>22</td>
+            </tr>
+            <tr>
+                <td>Shoulder(Inch)</td>
+                <td>15</td>
+                <td>15.5</td>
+                <td>16</td>
+                <td>16.5</td>
+            </tr>
+        </table> 
+        
+        <button class="popup-close-btn" onclick="closeSizeChart()">Close</button>
+        <div style="clear: both;"></div>
+    </div>
+</div>
+
+            
+            <div class="size-options">
+                <p><strong>SIZE:</strong></p>
+                <button class="size-btn selected">30</button>
+                <button class="size-btn">32</button>
+                <button class="size-btn">34</button>
+                <button class="size-btn">36</button>
+                <button class="size-btn">38</button>
+            </div>
+
+            <div class="color-options">
+                <div class="color-box" data-image="top7.jpeg" style="background-color: #8dc392;"></div>
+                
+                <div class="quantity">
+                    <button class="qty-btn">-</button>
+                    <input id="qty-input" type="number" value="1" min="1">
+                    <button class="qty-btn">+</button>
+                </div>
+            </div>
+
+            
+
+            <button class="add-to-cart-btn" 
+                data-id="T0004" 
+                data-name="Breezy Off-Shoulder Crop Top" 
+                data-price="1990" 
+                data-image="top7.jpeg"
+                onclick="addToCart(this.getAttribute('data-id'), 
+             this.getAttribute('data-name'), 
+             this.getAttribute('data-price'), 
+             this.getAttribute('data-image'))">
+            Add To Cart
+            </button>
+            
+
+            <button class="buy-now">Buy Now</button>
+            
+
+            <p class="availability"><strong>Only <span class="low-stock">2</span> available</strong></p>
+            <p class="delivery-info">Order now to get it between <span>Wednesday, 9th April</span> and <span>Thursday, 10th April</span></p>
+            
+
+            
+
+            <a href="#" class="delivery-return-link">Delivery & Return</a>
+
+<!-- Popup HTML -->
+<div class="popup-overlay" id="deliveryPopup">
+    <div class="popup-content">
+        <h3>Delivery & Return Policy</h3>
+        
+        <h4>Delivery Information</h4>
+        <ul>
+            <li>Standard delivery: 3-5 business days</li>
+            <li>Express delivery available at additional cost</li>
+            <li>Free shipping on orders over Rs 5,000</li>
+            <li>Orders processed within 1-2 business days</li>
+            <li>Tracking information provided for all orders</li>
+        </ul>
+        
+        <h4>Return Policy</h4>
+        <ul>
+            <li>Easy 14-day returns from date of delivery</li>
+            <li>Items must be unused with original tags and packaging</li>
+            <li>Refunds processed within 5 business days after receiving returned item</li>
+            <li>Return shipping at customer's expense</li>
+            <li>Final sale items cannot be returned</li>
+        </ul>
+        
+        <button class="popup-close-btn" onclick="closePopup()">Close</button>
+        <div style="clear: both;"></div>
+    </div>
+</div>
+
+            
+                <div  class="dropdown-btn">
+                    <a href=# id="review-btn" onclick="loadXMLReviews()" class="dropbtn" >Reviews<span class="arrow">▼</span></a>
+                    <div id="review-section">
+                
+                    </div>
+                </div>
+            
+            
+            
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <script src="cart.js"></script>
+    
+    <div class="description">
+        <br><br>
+        <h2>Product Information</h2>
+        <br>
+        <p>Style - Embroidery Sleeveless Top</p>
+        <p>    Model Wears - S</p>
+        
+        <p>    Model Height - 5 Feet  9 Inches''</p>
+        <p>    Brand - Spring & Summer</p>
+        <p>   Fit - Regular Fit</p>
+        <p> Wash & Care - Hand wash with cold water, wash</p>
+         <p> inside out, wash light colors separately & iron</p>
+         <p>  with care</p>
+            <br>
+        <p> Despite every effort to provide accurate images </p>
+        <p> of each product's color and design, actual colors</p>
+        <p>and design may vary slightly.</p>
+        <br>
+
+     <table class="DescTable" align="center">  
+        <h2>Size Guide</h2>
+        <br>
+        <tr class="size-chart">
+            <th>Size</th>
+            <th>S</th>
+            <th>M</th>
+            <th>L</th>
+            <th>XL</th>
+        </tr>
+        <tr>
+            <td>UK</td>
+            <td>8</td>
+            <td>10</td>
+            <td>12</td>
+            <td>14</td>
+        </tr>
+        <tr>
+            <td>USA</td>
+            <td>4</td>
+            <td>6</td>
+            <td>8</td>
+            <td>10</td>
+        </tr>
+        <tr>
+            <td>Bust(Inch)</td>
+            <td>34</td>
+            <td>36</td>
+            <td>38</td>
+            <td>41</td>
+        </tr>
+        <tr>
+            <td>Waist(Inch)</td>
+            <td>35</td>
+            <td>37</td>
+            <td>39</td>
+            <td>42</td>
+        </tr>
+        <tr>
+            <td>Length(Inch)</td>
+            <td>21</td>
+            <td>21.5</td>
+            <td>22</td>
+            <td>22</td>
+        </tr>
+        <tr>
+            <td>Shoulder(Inch)</td>
+            <td>15</td>
+            <td>15.5</td>
+            <td>16</td>
+            <td>16.5</td>
+        </tr>
+    </table> 
+    <br><br><br>
+    </div>
+
+
+    <section class="FeaturedProducts">
+        <h2>Featured Products</h2>
+
+        <!-- Product 1 -->
+        <div class="featured-card">
+            <a href="cardi6.jpg" target="_blank">
+                <img src="mini dress1.jpeg" alt="tops" width="200">
+            </a>
+            <h3><a href="top1.html">Ruffled Off-Shoulder Crop Top</a></h3>
+            <p class="price">LKR 2390.00</p>
+            <span class="color-container" style="background-color: #e8a287;"></span>
+            
+        </div>
+
+        <!-- Product 2 -->
+        <div class="featured-card">
+            <a href="cardi6.jpg" target="_blank">
+                <img src="cardi1.jpg" alt="tops" width="200">
+            </a>
+            <h3><a href="top2.html">Ruffled Off-Shoulder Crop Top</a></h3>
+            
+            <p class="price">LKR 2890.00</p>
+            <span class="color-container" style="background-color: white;"></span>
+            
+        </div>
+
+        <!-- Product 3 -->
+        <div class="featured-card">
+            <a href="top7.jpeg" target="_blank">
+                <img src="maxi8.jpg" alt="tops" width="200">
+            </a>
+            <h3><a href="top3.html">Ruffled Off-Shoulder Crop Top</a></h3>
+            <p class="price">LKR 2990.00</p>
+            <span class="color-container" style="background-color: #c59bdb;"></span>
+            
+        </div>
+        
+        <!-- Product 4 -->
+        <div class="featured-card">
+            <a href="top4.html" target="_blank">
+                <img src="midi4.jpeg" alt="tops" width="200">
+            </a>
+            <h3><a href="mini.html">Ruffled Off-Shoulder Crop Top</a></h3>
+            <p class="price">LKR 1990.00</p>
+            <span class="color-container" style="background-color: #8dc392;"></span>
+           
+        </div>
+    </section>
+
+    
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>About Brand</h3>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+    
+            <div class="footer-section">
+                <h3>Online Information</h3>
+                <ul>
+                    <li><a href="#">Shipping & Returns</a></li>
+                    <li><a href="#">Store Finder</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Promotions</a></li>
+                    <li><a href="#">Loyalty Programs</a></li>
+                    <li><a href="#">Referral Rendezvous</a></li>
+                    <li><a href="#">CSR Projects</a></li>
+                    <li><a href="#">Blog Posts</a></li>
+                </ul>
+            </div>
+    
+            <div class="footer-section">
+                <h3>Customer Service</h3>
+                <p><i class="fas fa-map-marker-alt"></i> 216/3, Pamunuwa Road, Maharagama.</p>
+                <p><i class="fas fa-envelope"></i> online@elitereverie.lk</p>
+                <p><i class="fas fa-phone"></i> +94 77 009 9003</p>
+                <p><i class="fas fa-phone"></i> +94 76 629 2920</p>
+            </div>
+    
+            <div class="footer-section social">
+                <h3>Follow Us On</h3>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+        <hr>
+
+        <div class="footer-last">
+            
+                <p>&copy; 2025 Elite Reverie. All Rights Reserved.</p>
+            
+        </div>
+    </footer>
+
+</body>
+</html>

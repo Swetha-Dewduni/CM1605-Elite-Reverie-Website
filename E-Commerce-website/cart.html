@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart - Elite Reverie</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="javascript" href="cart.js">
+    <link rel="stylesheet" href="cart.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>ELITE REVERIE</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li class="dropdown">
+                        <a href="products.html" class="dropbtn">Shop<span class="arrow">▼</span></a>
+                    <div class="dropdown-content">
+                        <a href="Tops.html">Tops</a>
+                        <a href="minidresses.html">Mini Dresses</a>
+                        <a href="mididresses.html">Midi Dresses</a>
+                        <a href="maxidress.html">Maxi Dresses</a>
+                        <a href="cardigan.html">Cardigans</a>
+                        <a href="pant.html">Pants</a>
+                    </div></li>
+                    <li><a href="order.html">Checkout</a></li>
+					<li><a href="login.html">Login</a></li>
+					<li><a href="cart.html">🛒Cart (<span id="cart-count">0</span>)</a></li>
+					
+                </ul>
+            </nav>
+        </div>
+        
+
+        
+    </header>
+
+    <h2>Shopping Cart</h2>
+    <div id="cart-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Total</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="cart-items">
+                <!-- Items will be inserted here dynamically -->
+            </tbody>
+        </table>
+        <h2>Total: Rs <span id="cart-total">0</span></h2>
+        <button onclick="checkout()">Proceed to Checkout</button>
+    </div>
+    
+   
+<script src="cart.js"></script>
+
+<footer>
+    <div class="footer-container">
+        <div class="footer-section">
+            <h3>About Brand</h3>
+            <ul>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section">
+            <h3>Online Information</h3>
+            <ul>
+                <li><a href="#">Shipping & Returns</a></li>
+                <li><a href="#">Store Finder</a></li>
+                <li><a href="#">Terms & Conditions</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Promotions</a></li>
+                <li><a href="#">Loyalty Programs</a></li>
+                <li><a href="#">Referral Rendezvous</a></li>
+                <li><a href="#">CSR Projects</a></li>
+                <li><a href="#">Blog Posts</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section">
+            <h3>Customer Service</h3>
+            <p><i class="fas fa-map-marker-alt"></i> 216/3, Pamunuwa Road, Maharagama.</p>
+            <p><i class="fas fa-envelope"></i> online@elitereverie.lk</p>
+            <p><i class="fas fa-phone"></i> +94 77 009 9003</p>
+            <p><i class="fas fa-phone"></i> +94 76 629 2920</p>
+        </div>
+
+        <div class="footer-section social">
+            <h3>Follow Us On</h3>
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+    </div>
+    <hr>
+
+    <div class="footer-last">
+        
+            <p>&copy; 2025 Elite Reverie. All Rights Reserved.</p>
+        
+    </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pant Collection - Elite Reverie</title>
+    <link rel="stylesheet" href="product.css">
+    <link rel="stylesheet" href="index.css">
+    <script src="cart.js"></script>
+    <script src="script.js"></script>
+
+</head>
+<body>
+<header>
+    <div class="container">
+        <h1>ELITE REVERIE</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="products.html" class="dropbtn">Shop<span class="arrow">▼</span></a>
+                <div class="dropdown-content">
+                    <a href="Tops.html">Tops</a>
+                    <a href="minidresses.html">Mini Dresses</a>
+                    <a href="mididresses.html">Midi Dresses</a>
+                    <a href="maxidress.html">Maxi Dresses</a>
+                    <a href="cardigan.html">Cardigans</a>
+                    <a href="pant.html">Pants</a>
+                </div></li>
+                <li><a href="order.html">Checkout</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="cart.html">🛒Cart (<span id="cart-count">0</span>)</a></li>
+                
+            </ul>
+        </nav>
+    </div>
+    <div  class="nav-right">
+        <input type="text" class="search-bar" placeholder="Search for products">
+        <button class="search-btn">Search</button>
+    </div>
+</header>
+
+<div class="product-filters">
+    <label id="sortby" for="price-sort">Sort by:</label>
+    <select id="price-sort" onchange="sortProducts()">
+        <option value="default">Default</option>
+        <option value="price-asc">Price: Low to High</option>
+        <option value="price-desc">Price: High to Low</option>
+    </select>
+</div>
+
+
+    <section class="Dresses">
+        <h2>Pant Collection</h2>
+        <div class="Dress-card">
+            <a href="pant1.html" target="_self">
+                <img src="pant1.jpg" alt="pants" width="200">
+            </a>
+            <h3><a href="pant1.html">Wide-Leg Pleated Trousers</a></h3>
+            <p class="price">LKR 5290.00</p>
+            <span class="color-container" style="background-color: #f5f1df;"></span>
+        
+        </div>
+
+        <div class="Dress-card">
+            <a href="pant2.html" target="_self">
+                <img src="pant8.jpg" alt="pants" width="200">
+            </a>
+            <h3><a href="pant2.html">High-Waisted Flared Pants</a></h3>
+            <p class="price">LKR 5890.00</p>
+            <span class="color-container" style="background-color: #ee9bca;"></span>
+        </div>
+
+        <div class="Dress-card">
+            <a href="pant3.html" target="_self">
+                <img src="pant7.jpg" alt="pants" width="200">
+            </a>
+            <h3><a href="pant3.html">Bell Bottomed Pants</a></h3>
+            <p class="price">LKR 5490.00</p>
+            <span class="color-container" style="background-color: #66410a;"></span>
+        
+        </div>
+
+        <div class="Dress-card">
+            <a href="pant4.html" target="_self">
+                <img src="pant6.jpg" alt="pants" width="200">
+            </a>
+            <h3><a href="pant4.html">Ribbed Flared Pants</a></h3>
+            <p class="price">LKR 4290.00</p>
+            <span class="color-container" style="background-color: #b88fd5;"></span>
+        </div>
+    </section>
+
+    <hr>
+
+    <section class="FeaturedProducts">
+        <h2>You may also like</h2>
+
+        <!-- Product 1 -->
+        <div class="featured-card">
+            <a href="mini1.html" target="_self">
+                <img src="mini dress1.jpeg" alt="tops" width="200">
+            </a>
+            <h3><a href="mini1.html">Pink Puff Sleeve Mini Dress</a></h3>
+            <p class="price">LKR 3690.00</p>
+            <span class="color-container" style="background-color: #f16a9a;"></span>
+            
+        </div>
+
+        <!-- Product 2 -->
+        <div class="featured-card">
+            <a href="midi2.html" target="_self">
+                <img src="midi2.jpeg" alt="mididresses" width="200">
+            </a>
+            <h3><a href="midi2.html">Ivory Elegance Midi Dress</a></h3>
+            <p class="price">LKR 4690.00</p>
+            <span class="color-container" style="background-color: white;"></span>
+            
+        </div>
+
+        <!-- Product 3 -->
+        <div class="featured-card">
+            <a href="maxi1.html" target="_self">
+                <img src="maxi8.jpg" alt="maxidresses" width="200">
+            </a>
+            <h3><a href="maxi1.html">Rust Ruffle Sleeve Maxi Dress</a></h3>
+            <p class="price">LKR 5990.00</p>
+            <span class="color-container" style="background-color: #915812;"></span>
+            
+        </div>
+        
+        <!-- Product 4 -->
+        <div class="featured-card">
+            <a href="cardi2.html" target="_self">
+                <img src="cardi1.jpg" alt="cardigan" width="200">
+            </a>
+            <h3><a href="cardi2.html">Light Beige Collared Cardigan</a></h3>
+            <p class="price">LKR 5290.00</p>
+            <span class="color-container" style="background-color: #e8d0c1;"></span>
+            
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>About Brand</h3>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+    
+            <div class="footer-section">
+                <h3>Online Information</h3>
+                <ul>
+                    <li><a href="#">Shipping & Returns</a></li>
+                    <li><a href="#">Store Finder</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Promotions</a></li>
+                    <li><a href="#">Loyalty Programs</a></li>
+                    <li><a href="#">Referral Rendezvous</a></li>
+                    <li><a href="#">CSR Projects</a></li>
+                    <li><a href="#">Blog Posts</a></li>
+                </ul>
+            </div>
+    
+            <div class="footer-section">
+                <h3>Customer Service</h3>
+                <p><i class="fas fa-map-marker-alt"></i> 216/3, Pamunuwa Road, Maharagama.</p>
+                <p><i class="fas fa-envelope"></i> online@elitereverie.lk</p>
+                <p><i class="fas fa-phone"></i> +94 77 009 9003</p>
+                <p><i class="fas fa-phone"></i> +94 76 629 2920</p>
+            </div>
+    
+            <div class="footer-section social">
+                <h3>Follow Us On</h3>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+        <hr>
+
+        <div class="footer-last">
+            
+                <p>&copy; 2025 Elite Reverie. All Rights Reserved.</p>
+            
+        </div>
+    </footer>
+    
+
+</body>
+</html>

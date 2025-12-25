@@ -1,0 +1,221 @@
+This report records the creation of an online shopping website that is modeled after a convenient and easy-to-use online shopping experience. The site includes a home page with shopping items, prices, and pictures, a dynamic shopping cart, and a check-out form with JavaScript validation of user input. The product review page utilizes XML data to load and display customer reviews. During the development and designing process, fundamental UX/UI principles like color contrast, uniform typography, accessibility features, and simple navigation were given high priority to achieve a smooth user experience.
+
+
+
+// cart 
+
+     // Load cart from localStorage or initialize empty array
+     let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        
+     // Update cart count display
+     function updateCartCount() {
+         const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+         document.getElementById('cartCount').textContent = totalItems;
+     }
+     
+     // Add to cart functionality
+     document.querySelector('.add-to-cart-btn').addEventListener('click', function() {
+         const productId = this.getAttribute('data-id');
+         const productName = this.getAttribute('data-name');
+         const productPrice = parseInt(this.getAttribute('data-price'));
+         const productImage = this.getAttribute('data-image');
+         
+         // Check if product already in cart
+         const existingItem = cart.find(item => item.id === productId);
+         
+         if (existingItem) {
+             existingItem.quantity += 1;
+         } else {
+             cart.push({
+                 id: productId,
+                 name: productName,
+                 price: productPrice,
+                 image: productImage,
+                 quantity: 1
+             });
+         }
+         
+         // Save to localStorage and update count
+         localStorage.setItem('cart', JSON.stringify(cart));
+         updateCartCount();
+         
+         // Optional: Show added notification
+         alert(`${productName} added to cart!`);
+     });
+     
+     // Initialize cart count on page load
+     updateCartCount();
+
+
+
+
+       
+
+// cart html js
+
+document.addEventListener("DOMContentLoaded", function () {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    updateCartUI();
+
+    function addToCart(product, price) {
+        let existingItem = cart.find(item => item.product === product);
+        if (existingItem) {
+            existingItem.quantity += 1;
+        } else {
+            cart.push({ product, price, quantity: 1 });
+        }
+        saveCart();
+    }
+
+    function removeFromCart(product) {
+        cart = cart.filter(item => item.product !== product);
+        saveCart();
+    }
+
+    function updateQuantity(product, change) {
+        let item = cart.find(item => item.product === product);
+        if (item) {
+            item.quantity += change;
+            if (item.quantity <= 0) {
+                removeFromCart(product);
+            }
+            saveCart();
+        }
+    }
+
+    function saveCart() {
+        localStorage.setItem("cart", JSON.stringify(cart));
+        updateCartUI();
+    }
+
+    function updateCartUI() {
+        let cartContainer = document.getElementById("cart-items");
+        let cartTotal = document.getElementById("cart-total");
+        let cartCount = document.getElementById("cart-count");
+
+        cartContainer.innerHTML = "";
+        let total = 0;
+        let count = 0;
+ cart.forEach(item => {
+            let itemTotal = item.price * item.quantity;
+            total += itemTotal;
+            count += item.quantity;
+            
+            let row = document.createElement("tr");
+            row.innerHTML = `
+                <td>${item.product}</td>
+                <td>Rs ${item.price}</td>
+                <td>
+                    <button onclick="updateQuantity('${item.product}', -1)">-</button>
+                    ${item.quantity}
+                    <button onclick="updateQuantity('${item.product}', 1)">+</button>
+                </td>
+                <td>Rs ${itemTotal}</td>
+                <td><button onclick="removeFromCart('${item.product}')">Remove</button></td>
+            `;
+            cartContainer.appendChild(row);
+        });
+
+        cartTotal.textContent = total;
+        cartCount.textContent = count;
+    }
+
+    window.addToCart = addToCart;
+    window.removeFromCart = removeFromCart;
+    window.updateQuantity = updateQuantity;
+    window.checkout = function () {
+        alert("Proceeding to checkout. Implement payment logic here.");
+    };
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+romoved one 
+
+// cart html js
+
+document.addEventListener("DOMContentLoaded", function () {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    updateCartUI();
+
+    function addToCart(product, price) {
+        let existingItem = cart.find(item => item.product === product);
+        if (existingItem) {
+            existingItem.quantity += 1;
+        } else {
+            cart.push({ product, price, quantity: 1 });
+        }
+        saveCart();
+    }
+
+    function removeFromCart(product) {
+        cart = cart.filter(item => item.product !== product);
+        saveCart();
+    }
+
+    function updateQuantity(product, change) {
+        let item = cart.find(item => item.product === product);
+        if (item) {
+            item.quantity += change;
+            if (item.quantity <= 0) {
+                removeFromCart(product);
+            }
+            saveCart();
+        }
+    }
+
+    function saveCart() {
+        localStorage.setItem("cart", JSON.stringify(cart));
+        updateCartUI();
+    }
+
+    function updateCartUI() {
+        let cartContainer = document.getElementById("cart-items");
+        let cartTotal = document.getElementById("cart-total");
+        let cartCount = document.getElementById("cart-count");
+
+        cartContainer.innerHTML = "";
+        let total = 0;
+        let count = 0;
+ cart.forEach(item => {
+            let itemTotal = item.price * item.quantity;
+            total += itemTotal;
+            count += item.quantity;
+            
+            let row = document.createElement("tr");
+            row.innerHTML = `
+                <td>${item.product}</td>
+                <td>Rs ${item.price}</td>
+                <td>
+                    <button onclick="updateQuantity('${item.product}', -1)">-</button>
+                    ${item.quantity}
+                    <button onclick="updateQuantity('${item.product}', 1)">+</button>
+                </td>
+                <td>Rs ${itemTotal}</td>
+                <td><button onclick="removeFromCart('${item.product}')">Remove</button></td>
+            `;
+            cartContainer.appendChild(row);
+        });
+
+        cartTotal.textContent = total;
+        cartCount.textContent = count;
+    }
+
+    window.addToCart = addToCart;
+    window.removeFromCart = removeFromCart;
+    window.updateQuantity = updateQuantity;
+    window.checkout = function () {
+        alert("Proceeding to checkout. Implement payment logic here.");
+    };
+});

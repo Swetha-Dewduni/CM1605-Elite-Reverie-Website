@@ -1,0 +1,206 @@
+.cart-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100% - 50px); 
+    background-color: #f0f0f0;
+    height: calc(100% - 50px);
+    
+}
+
+.cart-container {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    width: 360px;
+    text-align: center;
+    margin-top: 50px; /* Adjust this value to move the box downward */
+    margin-bottom: 50px;
+}
+.cart-container h2 {
+    margin-bottom: 1.5rem;
+}
+
+ h2 {
+    text-align: center;
+    margin-top: 50px;
+    font-size: 35px;
+    color: #333;
+}
+
+
+
+/* Cart Container */
+#cart-container {
+    width: 80%;
+    max-width: 900px;
+    margin: 50px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+
+
+/* Cart Table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background: #eee;
+}
+
+td {
+    background: #fff;
+}
+
+/* Remove Button */
+button {
+    background: rgb(218, 38, 38);
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+button:hover {
+    background: #2bc050;
+}
+
+/* Checkout Button */
+button[onclick="checkout()"] {
+    background: #27ae60;
+    font-size: 16px;
+    padding: 12px 16px;
+    width: 400px;
+    margin-top: 20px;
+    position: relative;
+    margin-left: 245px;
+}
+
+button[onclick="checkout()"]:hover {
+    background: #219150;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #cart-container {
+        width: 95%;
+        padding: 15px;
+    }
+
+    th, td {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    button {
+        font-size: 12px;
+        padding: 6px 10px;
+    }
+}
+    
+
+
+
+/* another css */
+
+/* Cart Overlay */
+.cart-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* Cart Modal */
+.cart-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 40%;
+    max-width: 500px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+    text-align: center;
+}
+
+/* Close Button */
+.close-cart {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* Cart Items */
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.cart-item img {
+    width: 50px;
+    border-radius: 5px;
+}
+
+.cart-item button {
+    background: red;
+    color: white;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+}
+
+/* Buttons */
+.cart-btn, .checkout-btn, .clear-btn {
+    background: #ffcc00;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+
+/* Add to your cart.css or main CSS file */
+
+    .color-chip {
+        display: inline-block;
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        margin-left: 8px;
+        border: 1px solid #ddd;
+        vertical-align: middle;
+    }
+    
+    /* Optional: Style for empty cart message */
+    .empty-cart {
+        text-align: center;
+        padding: 20px;
+        color: #666;
+    }

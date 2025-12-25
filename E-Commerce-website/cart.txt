@@ -1,0 +1,172 @@
+let cart = [];
+let cartCount = 0;
+
+function addToCart(product, price) {
+    cart.push({ product, price });
+    cartCount++;
+    document.getElementById("cart-count").innerText = cartCount;
+    showCartItems();
+}
+
+function toggleCart() {
+    const cartPopup = document.getElementById("cart-popup");
+    cartPopup.style.display = cartPopup.style.display === "block" ? "none" : "block";
+}
+
+function showCartItems() {
+    const cartItems = document.getElementById("cart-items");
+    cartItems.innerHTML = "";
+    cart.forEach((item, index) => {
+        cartItems.innerHTML += `<p>${item.product} - $${item.price}</p>`;
+    });
+}
+
+function checkout() {
+    alert("Thank you for your order!");
+    cart = [];
+    cartCount = 0;
+    document.getElementById("cart-count").innerText = cartCount;
+    document.getElementById("cart-items").innerHTML = "";
+}
+
+
+// new
+
+function loadCart() {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    let cartItems = document.getElementById("cart-items");
+    let cartTotal = 0;
+    cartItems.innerHTML = "";
+
+    cart.forEach((item, index) => {
+        let row = `<tr>
+            <td>${item.name}</td>
+            <td>Rs ${item.price}</td>
+            <td>${item.quantity}</td>
+            <td>Rs ${item.price * item.quantity}</td>
+            <td><button onclick="removeItem(${index})">Remove</button></td>
+        </tr>`;
+        cartTotal += item.price * item.quantity;
+        cartItems.innerHTML += row;
+    });
+    document.getElementById("cart-total").textContent = cartTotal;
+}
+
+function removeItem(index) {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    cart.splice(index, 1);
+    localStorage.setItem("cart", JSON.stringify(cart));
+    loadCart();
+}
+
+function checkout() {
+    alert("Proceeding to checkout!");
+}
+
+window.onload = loadCart;
+
+
+
+// another js
+
+
+
+function addToCart(name, price, image) {
+    let item = cart.find(product => product.name === name);
+
+    if (item) {
+        item.quantity += 1;
+    } else {
+        cart.push({ name, price, image, quantity: 1 });
+    }
+
+    updateCart();
+}
+
+function updateCart() {
+    let cartContainer = document.getElementById("cart-items");
+    let cartCount = document.getElementById("cart-count");
+    let cartTotal = document.getElementById("cart-total");
+
+    cartContainer.innerHTML = "";
+    let total = 0;
+    let count = 0;
+
+    cart.forEach((item, index) => {
+        total += item.price * item.quantity;
+        count += item.quantity;
+
+        cartContainer.innerHTML += `
+            <div class="cart-item">
+                <img src="${item.image}" alt="${item.name}">
+                <p>${item.name} (x${item.quantity}) - Rs ${item.price * item.quantity}</p>
+                <button onclick="removeFromCart(${index})">❌</button>
+            </div>
+        `;
+    });
+
+    cartCount.textContent = count;
+    cartTotal.textContent = total;
+}
+
+function removeFromCart(index) {
+    cart[index].quantity -= 1;
+    if (cart[index].quantity === 0) {
+        cart.splice(index, 1);
+    }
+    updateCart();
+}
+
+function openCart() {
+    document.getElementById("cartModal").style.display = "flex";
+}
+
+function closeCart() {
+    document.getElementById("cartModal").style.display = "none";
+}
+
+function clearCart() {
+    cart = [];
+    updateCart();
+}
+
+function checkout() {
+    if (cart.length === 0) {
+        alert("Your cart is empty!");
+        return;
+    }
+    alert("Proceeding to checkout...");
+    cart = [];
+    updateCart();
+}
+
+
+
+function loadReviews() {
+    fetch('reviews.xml') // Load the XML file
+        .then(response => response.text()) // Convert response to text
+        .then(str => new window.DOMParser().parseFromString(str, "text/xml")) // Parse XML
+        .then(data => displayReviews(data)); // Pass XML data to function
+}
+
+function displayReviews(xml) {
+    let reviews = xml.getElementsByTagName("review");
+    let reviewContainer = document.getElementById("review-section");
+
+    for (let i = 0; i < reviews.length; i++) {
+        let name = reviews[i].getElementsByTagName("name")[0].textContent;
+        let rating = reviews[i].getElementsByTagName("rating")[0].textContent;
+        let comment = reviews[i].getElementsByTagName("comment")[0].textContent;
+
+        let reviewHTML = `
+            <div class="review">
+                <h4>${name} ⭐${rating}</h4>
+                <p>${comment}</p>
+            </div>
+        `;
+        reviewContainer.innerHTML += reviewHTML;
+    }
+}
+
+// Call function on page load
+window.onload = loadReviews;

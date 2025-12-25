@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<reviews>
+    <review>
+        <productID>T0001</productID>
+        <name>Jane Doe</name>
+        <rating>5</rating>
+        <comment>Great quality and perfect fit!</comment>
+    </review>
+    <review>
+        <productID>T0002</productID>
+        <name>Emily Smith</name>
+        <rating>4</rating>
+        <comment>Love the material but the size runs small.</comment>
+    </review>
+</reviews>
